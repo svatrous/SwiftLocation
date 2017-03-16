@@ -125,7 +125,9 @@ public class VisitsRequest: Request {
 	/// - Throws: throw an exception if application is not configured correctly to receive Visits events. App should
 	///           require always authorization.
 	public init(name: String? = nil, event: @escaping VisitObserver.onVisit, error: @escaping VisitObserver.onFailure) throws {
-		guard CLLocationManager.appAuthorization == .always else {
+        
+        let auth = CLLocationManager.appAuthorization
+		guard auth == .always || auth == .both else {
 			throw LocationError.other("NSLocationAlwaysUsageDescription in Info.plist is required to use Visits feature")
 		}
 		self.name = name

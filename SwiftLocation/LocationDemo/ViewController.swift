@@ -103,8 +103,9 @@ class ViewController: UIViewController {
 		}
 		*/
 		
-		/*
+		
 		do {
+
 			try Location.monitorVisit(event: { visit in
 				print("A new visit to \(visit)")
 			}, error: { error in
@@ -113,7 +114,7 @@ class ViewController: UIViewController {
 		} catch {
 			print("Cannot start visit updates: \(error)")
 		}
-*/
+
 	}
 	
 }
